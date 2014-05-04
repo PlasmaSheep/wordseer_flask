@@ -50,6 +50,13 @@ class BaseConfig(object):
     SECURITY_SEND_PASSWORD_CHANGE_EMAIL = False
     SECURITY_SEND_REGISTER_EMAIL = False
 
+    # Google API keys
+    # TODO: change in production
+    SOCIAL_GOOGLE = {
+    'consumer_key': 'xxxx',
+    'consumer_secret': 'xxxx'
+    }
+
 class Production(BaseConfig):
     """Config for the production server.
     """

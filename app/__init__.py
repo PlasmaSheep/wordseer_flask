@@ -1,6 +1,8 @@
 import os
 from flask import Flask
 from flask.ext.security import Security, SQLAlchemyUserDatastore
+from flask.ext.social import Social
+from flask.ext.social.datastore import SQLAlchemyConnectionDatastore
 from flask_wtf.csrf import CsrfProtect
 
 from config import DEFAULT_ENV
@@ -33,6 +35,7 @@ from app.models import *
 
 user_datastore = SQLAlchemyUserDatastore(db, User, Role)
 security = Security(app, user_datastore)
+Social(app, SQLAlchemyConnectionDatastore(db, Connection))
 
 from app.views import *
 
